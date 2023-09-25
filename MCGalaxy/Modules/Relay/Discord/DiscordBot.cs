@@ -1,4 +1,4 @@
-﻿/*
+/*
     Copyright 2015 MCGalaxy
         
     Dual-licensed under the Educational Community License, Version 2.0 and
@@ -42,7 +42,7 @@ namespace MCGalaxy.Modules.Relay.Discord
         List<string> filter_replacements = new List<string>();
         JsonArray allowed;
 
-        public override string RelayName { get { return "Discord"; } }
+        public override string RelayName { get { return "hummus"; } }
         public override bool Enabled     { get { return Config.Enabled; } }
         public override string UserID    { get { return botUserID; } }
         public DiscordConfig Config;
@@ -173,21 +173,12 @@ namespace MCGalaxy.Modules.Relay.Discord
             return raw as string;
         }
         
-        string GetUser(JsonObject author) {
-            // User's chosen display name (configurable)
-            object name = null;
-            author.TryGetValue("global_name", out name);
-            if (name != null) return (string)name;
-
-            return (string)author["username"];
-        }
-        
         RelayUser ExtractUser(JsonObject data) {
             JsonObject author = (JsonObject)data["author"];
             
             RelayUser user = new RelayUser();
-            user.Nick = GetNick(data) ?? GetUser(author);
-            user.ID   = (string)author["id"];
+            user.Nick = GetNick(data) ?? (string)author["username"];
+            user.ID   =                  (string)author["id"];
             return user;
         }
 
