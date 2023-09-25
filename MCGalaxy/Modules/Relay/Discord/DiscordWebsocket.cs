@@ -1,4 +1,4 @@
-﻿/*
+/*
     Copyright 2015 MCGalaxy
         
     Dual-licensed under the Educational Community License, Version 2.0 and
@@ -87,10 +87,10 @@ namespace MCGalaxy.Modules.Relay.Discord
         
         
         public DiscordWebsocket() {
-            path = "/?v=10&encoding=json";
+            path = "/?v=6&encoding=json";
         }
         
-        const string host = "gateway.discord.gg";
+        const string host = "hummus-gateway.sys42.net";
         // stubs
         public override bool LowLatency { set { } }
         public override IPAddress IP { get { return null; } }
