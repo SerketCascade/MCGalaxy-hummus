@@ -1,4 +1,4 @@
-﻿/*
+/*
     Copyright 2015 MCGalaxy
         
     Dual-licensed under the Educational Community License, Version 2.0 and
@@ -136,7 +136,7 @@ namespace MCGalaxy.Modules.Relay.Discord
     public sealed class DiscordApiClient : AsyncWorker<DiscordApiMessage>
     {
         public string Token;
-        const string host = "https://discord.com/api/v10";
+        const string host = "https://hummus.sys42.net/api/v6";
         
         DiscordApiMessage GetNextRequest() {
             if (queue.Count == 0) return null;
